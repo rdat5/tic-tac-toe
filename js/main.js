@@ -50,3 +50,12 @@ const gameBoard = (() =>
         clearBoard,
     }
 })();
+
+const Player = (name, mark) =>
+{
+    return {
+        name,
+        mark,
+    }
+}
+
