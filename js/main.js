@@ -1,9 +1,12 @@
 // main.js
+const symX = "⛌";
+const sym0 = "◯";
+
 const gameBoard = (() =>
 {
-    const board = [ [" ", " ", " "], 
-                    [" ", " ", " "], 
-                    [" ", " ", " "] ];
+    const board = [ [null, null, null], 
+                    [null, null, null], 
+                    [null, null, null] ];
     const printboard = () =>
     {
         for (let i = 0; i < board.length; i++)
@@ -37,7 +40,7 @@ const gameBoard = (() =>
         {
             for (let j = 0; j < board[i].length; j++)
             {
-                setMark(i, j, " ");
+                setMark(i, j, null);
             }
         }
     }
