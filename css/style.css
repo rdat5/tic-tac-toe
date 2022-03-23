@@ -11,7 +11,7 @@ body
     height: 100vh;
     margin: 0;
 
-    font: 500 100% system-ui, sans-serif;
+    font: 500 100% 'Tahoma', system-ui, sans-serif;
 }
 .page-wrap
 {
@@ -53,4 +53,6 @@ body
 {
     grid-column: 1 / -1;
     background-color: #ffecb3;
+
+    font-size: smaller;
 }
