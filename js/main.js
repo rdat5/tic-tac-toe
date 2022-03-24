@@ -1,6 +1,6 @@
 // main.js
 const symX = "⛌";
-const sym0 = "◯";
+const symO = "◯";
 
 const gameBoard = (() =>
 {
@@ -14,7 +14,18 @@ const gameBoard = (() =>
             let line = "";
             for (let j = 0; j < board[i].length; j++)
             {
-                line += "[ " + board[i][j] + " ]";
+                let symbol;
+
+                if (board[i][j] !== null)
+                {
+                    symbol = board[i][j];
+                }
+                else
+                {
+                    symbol = " ";
+                }
+
+                line += "[ " + symbol + " ]";
             }
             console.log(line);
             if (i < 2)
@@ -31,7 +42,10 @@ const gameBoard = (() =>
     
     const setMark = (row, column, symbol) =>
     {
-        board[row][column] = symbol;
+        if (getMark(row, column) === null)
+        {
+            board[row][column] = symbol;
+        }
     }
 
     const clearBoard = () =>
@@ -61,4 +75,3 @@ const Player = (name, mark) =>
         mark,
     }
 }
-

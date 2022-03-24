@@ -47,6 +47,27 @@ body
 {
     grid-column: 2/ 3;
     background-color: #dcedc8;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.game .gameboard-wrapper
+{
+    background-color: black;
+    width: 65vmin;
+    height: 65vmin;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+}
+.game .gameboard-wrapper button
+{
+    font-size: 10vmin;
+    margin: 0;
+    padding: 0;
+    /* border: 1px solid black; */
 }
 
 .page-footer
