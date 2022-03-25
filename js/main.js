@@ -64,12 +64,58 @@ const gameBoard = (() =>
         }
     }
 
+    const isWinFound = () =>
+    {
+        let winFound = false;
+
+        for (let i = 0; i < 3; i++)
+        {
+            // Check each row
+            if (getMark(i, 0) === getMark(i, 1) && getMark(i, 0) == getMark(i, 2))
+            {
+                if (getMark(i, 0) !== null)
+                {
+                    winFound = true;
+                }
+            }
+
+            // Check each column
+            if (getMark(0, i) === getMark(1, i) && getMark(0, i) == getMark(2, i))
+            {
+                if (getMark(0, i) !== null)
+                {
+                    winFound = true;
+                }
+            }
+        }
+
+        // Check diagonals
+        if (getMark(0, 0) === getMark(1, 1) && getMark(0, 0) == getMark(2, 2))
+        {
+            if (getMark(0, 0) !== null)
+            {
+                winFound = true;
+            }
+        }
+
+        if (getMark(0, 2) === getMark(1, 1) && getMark(0, 2) == getMark(2, 0))
+        {
+            if (getMark(0, 2) !== null)
+            {
+                winFound = true;
+            }
+        }
+
+        return winFound;
+    }
+
     return {
         board,
         printboard,
         getMark,
         setMark,
         clearBoard,
+        isWinFound,
     }
 })();
 
@@ -119,8 +165,5 @@ const game = (() =>
 
         currentPlayer = player2;
     })
-
-
-    // button setup
 
 })();
