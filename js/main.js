@@ -2,6 +2,7 @@
 const symX = "⛌";
 const symO = "◯";
 
+
 const gameBoard = (() =>
 {
     const board = [ [null, null, null], 
@@ -137,6 +138,34 @@ const game = (() =>
     let player2;
     let currentPlayer;
     
+    const togglePlayer = () =>
+    {
+        if (currentPlayer === player1)
+        {
+            currentPlayer = player2;
+        }
+        else if (currentPlayer === player2)
+        {
+            currentPlayer = player1
+        }
+    }
+
+    const displayBoard = () =>
+    {
+        let index = 0;
+        for (let i = 0; i < 3; i++)
+        {
+            for (let j = 0; j < 3; j++)
+            {
+                if (gameBoard.getMark(i, j) !== null)
+                {
+                    allButtons[index].textContent = gameBoard.getMark(i, j);
+                }
+                index++;
+            }
+        }
+    }
+
     // button setup
     for (let i = 0; i < allButtons.length; i++)
     {
@@ -149,10 +178,15 @@ const game = (() =>
             {
                 if (gameBoard.setMark(cellRow, cellCol, currentPlayer.mark))
                 {
-                    // change turns
-                    console.log("eh");
+                    if (gameBoard.isWinFound())
+                    {
+                        gameInProgress = false;
+                        console.log(currentPlayer.name + " won!");
+                    }
+                    togglePlayer();
                 }
-                gameBoard.printboard();
+                displayBoard();
+
             }
         });
     }
