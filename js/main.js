@@ -210,6 +210,7 @@ const game = (() =>
             currentPlayer = player2;
         }
         console.log("Current player is now: " + currentPlayer.name);
+        startButton.style.display = "none";
     })
 
 })();
