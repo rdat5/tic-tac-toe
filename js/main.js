@@ -194,9 +194,11 @@ const game = (() =>
     startButton.addEventListener("click", function()
     {
         gameInProgress = true;
-
-        player1 = Player("ray", symX);
-        player2 = Player("bepis", symO);
+        
+        let player1Name = prompt("Enter player 1's name: ");
+        let player2Name = prompt("Enter player 2's name: ");
+        player1 = Player(player1Name, symX);
+        player2 = Player(player2Name, symO);
 
         let randomResult = Math.floor(Math.random() * 2);
         if (randomResult === 0)
