@@ -110,6 +110,24 @@ const gameBoard = (() =>
         return winFound;
     }
 
+    const isDraw = () =>
+    {
+        let drawFound = true;
+
+        for (let i = 0; i < 3; i++)
+        {
+            for (let j = 0; j < 3; j++)
+            {
+                if (getMark(i, j) === null)
+                {
+                    drawFound = false
+                }
+            }
+        }
+
+        return drawFound;
+    }
+    
     return {
         board,
         printboard,
@@ -117,6 +135,7 @@ const gameBoard = (() =>
         setMark,
         clearBoard,
         isWinFound,
+        isDraw,
     }
 })();
 
@@ -182,6 +201,11 @@ const game = (() =>
                     {
                         gameInProgress = false;
                         console.log(currentPlayer.name + " won!");
+                    }
+                    else if (gameBoard.isDraw())
+                    {
+                        gameInProgress = false;
+                        console.log("It's a draw!");
                     }
                     togglePlayer();
                 }
