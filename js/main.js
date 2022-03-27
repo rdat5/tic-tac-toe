@@ -194,10 +194,20 @@ const game = (() =>
     startButton.addEventListener("click", function()
     {
         gameInProgress = true;
+
         player1 = Player("ray", symX);
         player2 = Player("bepis", symO);
 
-        currentPlayer = player2;
+        let randomResult = Math.floor(Math.random() * 2);
+        if (randomResult === 0)
+        {
+            currentPlayer = player1;
+        }
+        else
+        {
+            currentPlayer = player2;
+        }
+        console.log("Current player is now: " + currentPlayer.name);
     })
 
 })();
