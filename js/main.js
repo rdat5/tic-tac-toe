@@ -151,6 +151,10 @@ const game = (() =>
 {
     const allButtons = document.querySelectorAll('.gameboard-wrapper button');
     const startButton = document.querySelector('.game-start-btn');
+    const p1NameElem = document.querySelector('.player1-card .player-name');
+    const p2NameElem = document.querySelector('.player2-card .player-name');
+    const p1Card = document.querySelector('.player1-card');
+    const p2Card = document.querySelector('.player2-card');
 
     let gameInProgress = false;
     let player1;
@@ -185,6 +189,30 @@ const game = (() =>
         }
     }
 
+    const showCurrentPlayer = () =>
+    {
+        if (currentPlayer === player1)
+        {
+            console.log(player1.name + "'s turn");
+            p1Card.style.border = "4px solid white"; 
+            p1Card.style.backgroundColor = "white"; 
+            p1Card.style.boxShadow = "0 0 5px white";
+            p2Card.style.border = "none";
+            p2Card.style.backgroundColor = "transparent";
+            p2Card.style.boxShadow = "none";
+        }
+        else if (currentPlayer === player2)
+        {
+            console.log(player2.name + "'s turn")
+            p2Card.style.border = "4px solid white";
+            p2Card.style.backgroundColor = "white";
+            p2Card.style.boxShadow = "0 0 5px white";
+            p1Card.style.border = "none";
+            p1Card.style.backgroundColor = "transparent"; 
+            p1Card.style.boxShadow = "none";
+        }
+    }
+
     // button setup
     for (let i = 0; i < allButtons.length; i++)
     {
@@ -207,7 +235,11 @@ const game = (() =>
                         gameInProgress = false;
                         console.log("It's a draw!");
                     }
-                    togglePlayer();
+                    else
+                    {
+                        togglePlayer();
+                        showCurrentPlayer();
+                    }
                 }
                 displayBoard();
 
@@ -223,6 +255,8 @@ const game = (() =>
         let player2Name = prompt("Enter player 2's name: ");
         player1 = Player(player1Name, symX);
         player2 = Player(player2Name, symO);
+        p1NameElem.textContent = player1Name;
+        p2NameElem.textContent = player2Name;
 
         let randomResult = Math.floor(Math.random() * 2);
         if (randomResult === 0)
@@ -233,8 +267,7 @@ const game = (() =>
         {
             currentPlayer = player2;
         }
-        console.log("Current player is now: " + currentPlayer.name);
+        showCurrentPlayer();
         startButton.style.display = "none";
-    })
-
+    })    
 })();

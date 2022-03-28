@@ -42,6 +42,30 @@ body
     grid-row: 2 / 3;
     background-color: #e1bee7;
 }
+.game-info .player-info-container
+{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-evenly;
+    height: 100%;
+}
+.game-info .player-info-container .player1-card,
+.game-info .player-info-container .player2-card
+{
+    border-radius: 12px;
+}
+
+.game-info .player-info-container .player-mark
+{
+    font-size: 10vmin;
+    padding: 0;
+    margin: 0;
+}
+.game-info .player-info-container .player-name
+{
+    font-size: 2rem;
+}
 
 .game
 {
