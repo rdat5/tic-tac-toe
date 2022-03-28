@@ -155,12 +155,14 @@ const game = (() =>
     const gameEndMsg = document.querySelector('.game-end-message p');
     const p1NameElem = document.querySelector('.player1-card .player-name');
     const p2NameElem = document.querySelector('.player2-card .player-name');
+    const p1NameInput = document.querySelector('#p1nameinp');
+    const p2NameInput = document.querySelector('#p2nameinp');
     const p1Card = document.querySelector('.player1-card');
     const p2Card = document.querySelector('.player2-card');
 
     let gameInProgress = false;
-    let player1;
-    let player2;
+    let player1 = Player("", symX);
+    let player2 = Player("", symO);
     let currentPlayer;
     
     const togglePlayer = () =>
@@ -237,6 +239,11 @@ const game = (() =>
                         console.log(currentPlayer.name + " won!");
                         gameEndMsgCont.style.visiblity = "visible";
                         gameEndMsg.textContent = currentPlayer.name + " won!";
+                        p1NameInput.style.display = "block";
+                        p2NameInput.style.display = "block";
+                        p1NameElem.style.display = "none";
+                        p2NameElem.style.display = "none";
+
                     }
                     else if (gameBoard.isDraw())
                     {
@@ -244,6 +251,10 @@ const game = (() =>
                         console.log("It's a draw!");
                         gameEndMsgCont.style.visiblity = "visible";
                         gameEndMsg.textContent = "It's a draw!";
+                        p1NameInput.style.display = "block";
+                        p2NameInput.style.display = "block";
+                        p1NameElem.style.display = "none";
+                        p2NameElem.style.display = "none";
                     }
                     else
                     {
@@ -262,15 +273,13 @@ const game = (() =>
         gameInProgress = true;
         gameBoard.clearBoard();
         displayBoard();
-        player1 = Player("", symX);
-        player2 = Player("", symO);
 
-        let player1Name = prompt("Enter player 1's name: ");
-        let player2Name = prompt("Enter player 2's name: ");
-        player1.name = player1Name;
-        player2.name = player2Name;
-        p1NameElem.textContent = player1Name;
-        p2NameElem.textContent = player2Name;
+        player1.name = p1NameInput.value;
+        player2.name = p2NameInput.value;
+        p1NameElem.textContent = player1.name;
+        p2NameElem.textContent = player2.name;
+        p1NameInput.value = "";
+        p2NameInput.value = "";
 
         let randomResult = Math.floor(Math.random() * 2);
         if (randomResult === 0)
@@ -283,5 +292,7 @@ const game = (() =>
         }
         showCurrentPlayer();
         gameEndMsgCont.style.visiblity = "hidden";
+        p1NameInput.style.display = "none";
+        p2NameInput.style.display = "none";
     })    
 })();
