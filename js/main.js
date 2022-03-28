@@ -243,6 +243,12 @@ const game = (() =>
                         p2NameInput.style.display = "block";
                         p1NameElem.style.display = "none";
                         p2NameElem.style.display = "none";
+                        p1Card.style.border = "none";
+                        p1Card.style.backgroundColor = "transparent"; 
+                        p1Card.style.boxShadow = "none";
+                        p2Card.style.border = "none";
+                        p2Card.style.backgroundColor = "transparent";
+                        p2Card.style.boxShadow = "none";
 
                     }
                     else if (gameBoard.isDraw())
@@ -255,6 +261,12 @@ const game = (() =>
                         p2NameInput.style.display = "block";
                         p1NameElem.style.display = "none";
                         p2NameElem.style.display = "none";
+                        p1Card.style.border = "none";
+                        p1Card.style.backgroundColor = "transparent"; 
+                        p1Card.style.boxShadow = "none";
+                        p2Card.style.border = "none";
+                        p2Card.style.backgroundColor = "transparent";
+                        p2Card.style.boxShadow = "none";
                     }
                     else
                     {
@@ -294,5 +306,7 @@ const game = (() =>
         gameEndMsgCont.style.visiblity = "hidden";
         p1NameInput.style.display = "none";
         p2NameInput.style.display = "none";
+        p1NameElem.style.display = "block";
+        p2NameElem.style.display = "block";
     })    
 })();
