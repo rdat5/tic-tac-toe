@@ -262,13 +262,13 @@ const game = (() =>
         gameInProgress = true;
         gameBoard.clearBoard();
         displayBoard();
-        player1 = null;
-        player2 = null;
+        player1 = Player("", symX);
+        player2 = Player("", symO);
 
         let player1Name = prompt("Enter player 1's name: ");
         let player2Name = prompt("Enter player 2's name: ");
-        player1 = Player(player1Name, symX);
-        player2 = Player(player2Name, symO);
+        player1.name = player1Name;
+        player2.name = player2Name;
         p1NameElem.textContent = player1Name;
         p2NameElem.textContent = player2Name;
 
