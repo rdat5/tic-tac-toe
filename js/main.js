@@ -60,7 +60,7 @@ const gameBoard = (() =>
         {
             for (let j = 0; j < board[i].length; j++)
             {
-                setMark(i, j, null);
+                board[i][j] = null;
             }
         }
     }
@@ -151,6 +151,8 @@ const game = (() =>
 {
     const allButtons = document.querySelectorAll('.gameboard-wrapper button');
     const startButton = document.querySelector('.game-start-btn');
+    const gameEndMsgCont = document.querySelector('.game-end-message');
+    const gameEndMsg = document.querySelector('.game-end-message p');
     const p1NameElem = document.querySelector('.player1-card .player-name');
     const p2NameElem = document.querySelector('.player2-card .player-name');
     const p1Card = document.querySelector('.player1-card');
@@ -183,6 +185,10 @@ const game = (() =>
                 if (gameBoard.getMark(i, j) !== null)
                 {
                     allButtons[index].textContent = gameBoard.getMark(i, j);
+                }
+                else
+                {
+                    allButtons[index].textContent = " ";
                 }
                 index++;
             }
@@ -229,11 +235,15 @@ const game = (() =>
                     {
                         gameInProgress = false;
                         console.log(currentPlayer.name + " won!");
+                        gameEndMsgCont.style.display = "block";
+                        gameEndMsg.textContent = currentPlayer.name + " won!";
                     }
                     else if (gameBoard.isDraw())
                     {
                         gameInProgress = false;
                         console.log("It's a draw!");
+                        gameEndMsgCont.style.display = "block";
+                        gameEndMsg.textContent = "It's a draw!";
                     }
                     else
                     {
@@ -242,15 +252,19 @@ const game = (() =>
                     }
                 }
                 displayBoard();
-
             }
+            displayBoard();
         });
     }
 
     startButton.addEventListener("click", function()
     {
         gameInProgress = true;
-        
+        gameBoard.clearBoard();
+        displayBoard();
+        player1 = null;
+        player2 = null;
+
         let player1Name = prompt("Enter player 1's name: ");
         let player2Name = prompt("Enter player 2's name: ");
         player1 = Player(player1Name, symX);
@@ -268,6 +282,6 @@ const game = (() =>
             currentPlayer = player2;
         }
         showCurrentPlayer();
-        startButton.style.display = "none";
+        gameEndMsgCont.style.display = "none";
     })    
 })();
