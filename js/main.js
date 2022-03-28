@@ -235,14 +235,14 @@ const game = (() =>
                     {
                         gameInProgress = false;
                         console.log(currentPlayer.name + " won!");
-                        gameEndMsgCont.style.display = "block";
+                        gameEndMsgCont.style.visiblity = "visible";
                         gameEndMsg.textContent = currentPlayer.name + " won!";
                     }
                     else if (gameBoard.isDraw())
                     {
                         gameInProgress = false;
                         console.log("It's a draw!");
-                        gameEndMsgCont.style.display = "block";
+                        gameEndMsgCont.style.visiblity = "visible";
                         gameEndMsg.textContent = "It's a draw!";
                     }
                     else
@@ -282,6 +282,6 @@ const game = (() =>
             currentPlayer = player2;
         }
         showCurrentPlayer();
-        gameEndMsgCont.style.display = "none";
+        gameEndMsgCont.style.visiblity = "hidden";
     })    
 })();
