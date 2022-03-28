@@ -238,7 +238,8 @@ const game = (() =>
                         gameInProgress = false;
                         console.log(currentPlayer.name + " won!");
                         gameEndMsgCont.style.visiblity = "visible";
-                        gameEndMsg.textContent = currentPlayer.name + " won!";
+                        gameEndMsg.textContent = currentPlayer.name + 
+                                "[" + currentPlayer.mark + "]" + " won!";
                         p1NameInput.style.display = "block";
                         p2NameInput.style.display = "block";
                         p1NameElem.style.display = "none";
