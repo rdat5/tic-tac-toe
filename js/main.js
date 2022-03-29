@@ -202,9 +202,9 @@ const game = (() =>
         if (currentPlayer === player1)
         {
             console.log(player1.name + "'s turn");
-            p1Card.style.border = "4px solid white"; 
-            p1Card.style.backgroundColor = "white"; 
-            p1Card.style.boxShadow = "0 0 5px white";
+            p1Card.style.border = "4px solid var(--accent1)"; 
+            p1Card.style.backgroundColor = "var(--accent1)"; 
+            p1Card.style.boxShadow = "0 0 5px var(--accent1)";
             p2Card.style.border = "none";
             p2Card.style.backgroundColor = "transparent";
             p2Card.style.boxShadow = "none";
@@ -212,9 +212,9 @@ const game = (() =>
         else if (currentPlayer === player2)
         {
             console.log(player2.name + "'s turn")
-            p2Card.style.border = "4px solid white";
-            p2Card.style.backgroundColor = "white";
-            p2Card.style.boxShadow = "0 0 5px white";
+            p2Card.style.border = "4px solid var(--accent2)";
+            p2Card.style.backgroundColor = "var(--accent2)";
+            p2Card.style.boxShadow = "0 0 5px var(--accent2)";
             p1Card.style.border = "none";
             p1Card.style.backgroundColor = "transparent"; 
             p1Card.style.boxShadow = "none";
