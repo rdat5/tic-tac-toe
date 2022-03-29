@@ -240,8 +240,8 @@ const game = (() =>
                         gameEndMsgCont.style.visiblity = "visible";
                         gameEndMsg.textContent = currentPlayer.name + 
                                 "[" + currentPlayer.mark + "]" + " won!";
-                        p1NameInput.style.display = "block";
-                        p2NameInput.style.display = "block";
+                        p1NameInput.style.display = "inline";
+                        p2NameInput.style.display = "inline";
                         p1NameElem.style.display = "none";
                         p2NameElem.style.display = "none";
                         p1Card.style.border = "none";
@@ -250,6 +250,7 @@ const game = (() =>
                         p2Card.style.border = "none";
                         p2Card.style.backgroundColor = "transparent";
                         p2Card.style.boxShadow = "none";
+                        startButton.style.display = "inline";
 
                     }
                     else if (gameBoard.isDraw())
@@ -258,8 +259,8 @@ const game = (() =>
                         console.log("It's a draw!");
                         gameEndMsgCont.style.visiblity = "visible";
                         gameEndMsg.textContent = "It's a draw!";
-                        p1NameInput.style.display = "block";
-                        p2NameInput.style.display = "block";
+                        p1NameInput.style.display = "inline";
+                        p2NameInput.style.display = "inline";
                         p1NameElem.style.display = "none";
                         p2NameElem.style.display = "none";
                         p1Card.style.border = "none";
@@ -268,6 +269,7 @@ const game = (() =>
                         p2Card.style.border = "none";
                         p2Card.style.backgroundColor = "transparent";
                         p2Card.style.boxShadow = "none";
+                        startButton.style.display = "inline";
                     }
                     else
                     {
@@ -286,6 +288,7 @@ const game = (() =>
         gameInProgress = true;
         gameBoard.clearBoard();
         displayBoard();
+        startButton.style.display = "none";
 
         player1.name = p1NameInput.value;
         player2.name = p2NameInput.value;
