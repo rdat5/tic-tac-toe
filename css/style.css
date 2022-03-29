@@ -1,4 +1,12 @@
 /* style.css */
+:root
+{
+    --dark: #292b1f;
+    --light: #f5efd4;
+    --accent1: #82b148;
+    --accent2: #f18624;
+}
+
 *
 {
     box-sizing: border-box;
